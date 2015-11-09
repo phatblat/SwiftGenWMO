@@ -12,6 +12,7 @@
 		B5A1DBDF1BF1616A006C5BFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5A1DBDD1BF1616A006C5BFA /* Main.storyboard */; };
 		B5A1DBE11BF1616A006C5BFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5A1DBE01BF1616A006C5BFA /* Assets.xcassets */; };
 		B5A1DBE41BF1616A006C5BFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5A1DBE21BF1616A006C5BFA /* LaunchScreen.storyboard */; };
+		B5A1DBEE1BF1633F006C5BFA /* UIColor+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A1DBED1BF1633F006C5BFA /* UIColor+Name.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		B5A1DBE31BF1616A006C5BFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5A1DBE51BF1616A006C5BFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5A1DBEB1BF16246006C5BFA /* Colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Colors.txt; sourceTree = "<group>"; };
+		B5A1DBED1BF1633F006C5BFA /* UIColor+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Name.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				B5A1DBE21BF1616A006C5BFA /* LaunchScreen.storyboard */,
 				B5A1DBE51BF1616A006C5BFA /* Info.plist */,
 				B5A1DBEB1BF16246006C5BFA /* Colors.txt */,
+				B5A1DBED1BF1633F006C5BFA /* UIColor+Name.swift */,
 			);
 			path = SwiftGenWMO;
 			sourceTree = "<group>";
@@ -73,6 +76,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5A1DBE81BF1616A006C5BFA /* Build configuration list for PBXNativeTarget "SwiftGenWMO" */;
 			buildPhases = (
+				B5A1DBEC1BF16275006C5BFA /* SwiftGen */,
 				B5A1DBD21BF1616A006C5BFA /* Sources */,
 				B5A1DBD31BF1616A006C5BFA /* Frameworks */,
 				B5A1DBD41BF1616A006C5BFA /* Resources */,
@@ -132,6 +136,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B5A1DBEC1BF16275006C5BFA /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=/usr/local/bin:${PATH}\n\nwhich -s swiftgen\nif [[ $? != 0 ]] ; then\n  echo \"warning: swiftgen is not installed\"\n  exit\nfi\n\nswiftgen --version\nswiftgen colors \\\n  --output \"${SRCROOT}/${PROJECT_NAME}/UIColor+Name.swift\" \\\n  \"${SRCROOT}/${PROJECT_NAME}/Colors.txt\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B5A1DBD21BF1616A006C5BFA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -139,6 +160,7 @@
 			files = (
 				B5A1DBDC1BF1616A006C5BFA /* ViewController.swift in Sources */,
 				B5A1DBDA1BF1616A006C5BFA /* AppDelegate.swift in Sources */,
+				B5A1DBEE1BF1633F006C5BFA /* UIColor+Name.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
