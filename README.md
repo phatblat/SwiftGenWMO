@@ -36,6 +36,14 @@ ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 ```
 
+## Xcode Versions
+
+The following versions of Xcode have all been tested with the project and have this issue with WMO builds:
+
+- 7.1 (7B91b)
+- 7.1.1 (7B1005)
+- 7.2 beta 3 (7C62)
+
 ## License
 
 This repo is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for rights and limitations.
